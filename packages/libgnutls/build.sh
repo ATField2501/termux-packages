@@ -7,7 +7,7 @@ TERMUX_PKG_SHA256=ae2248d9e78747cf9c469dde81ff8f90b56838b707a0637f3f7d4eee90e802
 TERMUX_PKG_SRCURL=https://www.gnupg.org/ftp/gcrypt/gnutls/v${TERMUX_PKG_VERSION:0:3}/gnutls-${TERMUX_PKG_VERSION}.tar.xz
 TERMUX_PKG_DEVPACKAGE_DEPENDS="libidn-dev, libnettle-dev"
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
---disable-cxx
+--enable-cxx
 --disable-hardware-acceleration
 --disable-openssl-compatibility
 --with-default-trust-store-file=$TERMUX_PREFIX/etc/tls/cert.pem
