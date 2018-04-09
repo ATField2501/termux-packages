@@ -4,3 +4,4 @@ TERMUX_PKG_VERSION=4.0.9
 TERMUX_PKG_SHA256=6e7bdeec2c310734e734d19aae3a71ebe37a4d842e0e23dbb1b8921c0026cfcd
 TERMUX_PKG_SRCURL=http://download.osgeo.org/libtiff/tiff-${TERMUX_PKG_VERSION}.tar.gz
 TERMUX_PKG_DEPENDS="libjpeg-turbo, liblzma"
+TERMUX_PKG_EXTRA_CONFIGURE_ARGS="--enable-cxx"
