@@ -4,14 +4,18 @@ TERMUX_PKG_MAINTAINER="Vishal Biswas @vishalbiswas"
 TERMUX_PKG_VERSION=6.2.32
 TERMUX_PKG_SRCURL=http://download.oracle.com/berkeley-db/db-${TERMUX_PKG_VERSION}.tar.gz
 TERMUX_PKG_SHA256=a9c5e2b004a5777aa03510cfe5cd766a4a3b777713406b02809c17c8e0e7a8fb
+TERMUX_PKG_REVISION=1
 TERMUX_PKG_EXTRA_CONFIGURE_ARGS="
 --enable-hash
 --enable-smallbuild
 --enable-compat185
 db_cv_atomic=gcc-builtin
+--enable-cxx
 "
 TERMUX_PKG_RM_AFTER_INSTALL="docs"
 
 termux_step_pre_configure() {
-	TERMUX_PKG_SRCDIR=$TERMUX_PKG_SRCDIR/dist
+cd src
+# was going to patch this and thought it too much work
+find | xargs -n 1 sed -i 's/atomic_init(/atomic_init_db(/g' || 	TERMUX_PKG_SRCDIR=$TERMUX_PKG_SRCDIR/dist
 }
